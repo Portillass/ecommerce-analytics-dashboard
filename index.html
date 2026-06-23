@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Command Center</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>E-Commerce Command Center</h1>
+        <p>Unified Analytics for Shopify & TikTok Shop</p>
+    </header>
+
+    <div id="banner" class="banner hidden"></div>
+
+    <section id="kpis" class="kpi-grid"></section>
+
+    <section class="platforms">
+        <div id="shopifyStatus" class="platform-card"></div>
+        <div id="tiktokStatus" class="platform-card"></div>
+    </section>
+
+    <section class="card">
+        <h2>Sales Overview</h2>
+        <canvas id="salesChart"></canvas>
+    </section>
+
+    <section class="card">
+        <h2>Inventory Health</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Shopify</th>
+                    <th>TikTok</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody id="inventoryTable"></tbody>
+        </table>
+    </section>
+
+    <section class="card">
+        <h2>Recent Orders</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Platform</th>
+                    <th>Customer</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+
+            <tbody id="ordersTable"></tbody>
+        </table>
+    </section>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/chart.js"></script>
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>
