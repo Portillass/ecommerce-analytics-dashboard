@@ -27,6 +27,8 @@ Implemented as a structural dashboard using:
 * JavaScript
 * Chart.js
 
+View Dashboard:https://ecommerce-analytics-dashboard-alpha.vercel.app/
+
 ## 📸 Preview
 
 ![Dashboard Preview](./pic/1.png)
@@ -94,6 +96,8 @@ ecommerce-dashboard/
 │
 ├── pic/
 │   └── 1.png
+│   └── 2.png
+│   └── 3.png
 │
 └── README.md
 ```
