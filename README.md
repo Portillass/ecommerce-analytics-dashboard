@@ -1,107 +1,69 @@
 # E-Commerce Analytics Dashboard
 
-## Design Assignment Submission
+Technical Assignment submission for the **Junior Fullstack Engineer** role at **Gyud Technologies**.
 
-**Applicant:** Jarell E. Portillas
+## Tech Stack
 
-This project was created as part of the **Junior Fullstack Engineer Design Assignment** for **Gyud Technologies**.
+- TanStack Start
+- React 19
+- Tailwind CSS
+- Shadcn UI
+- Node.js
+- Express.js
 
-## Project Overview
+## Project Structure
 
-The goal of this project is to create a unified analytics dashboard that allows merchants selling on both **Shopify** and **TikTok Shop** to monitor their daily business performance and inventory health from a single **Command Center**.
-
-The dashboard was designed with the following assumptions:
-
-* Shopify inventory data is available in real-time.
-* TikTok Shop inventory data may experience synchronization delays.
-* The system must continue functioning even if one platform becomes temporarily unavailable.
-
-## Deliverables
-
-### 1. UI Concept
-
-Implemented as a structural dashboard using:
-
-* HTML5
-* CSS3
-* JavaScript
-* Chart.js
-
-View Dashboard:https://ecommerce-analytics-dashboard-alpha.vercel.app/
-
-## 📸 Preview
-
-![Dashboard Preview](./pic/1.png)
-
-![Dashboard Preview](./pic/2.png)
-
-![Dashboard Preview](./pic/3.png)
-
----
-
-### 2. Component Architecture
-
-The component architecture diagram is available in Figma.
-
-🔗 **Figma Link:**
-https://www.figma.com/design/m8Qx1K6ExzsrmlTIhIRyR4/Component-Architecture?node-id=7-1925&t=F6cvNK4bePZGSctE-1
-
----
-
-### 3. API Contract & Error Handling
-
-📄 See: `docs/API Contract & Error Handling.pdf`
-
-This document includes:
-
-* API endpoint design
-* Example JSON request
-* Example JSON response
-* TikTok API failure handling scenario
-* Error handling strategy
-
----
-
-### 4. Engineering & UX Decisions
-
-📄 See: `docs/Engineering & UX Decisions.pdf`
-
-This document includes:
-
-* Feature trade-offs
-* UX decisions
-* Edge case handling
-* TikTok delay and unavailable state communication
-
----
-
-## Repository Structure
-
-```text
-ecommerce-dashboard/
-│
-├── index.html
-│
-├── css/
-│   └── style.css
-│
-├── js/
-│   ├── api.js
-│   ├── chart.js
-│   └── dashboard.js
-│
-├── docs/
-│   ├── API Contract & Error Handling.pdf
-│   └── Engineering & UX Decisions.pdf
-│
-├── pic/
-│   └── 1.png
-│   └── 2.png
-│   └── 3.png
-│
-└── README.md
+```
+frontend/   # React + TanStack Start
+backend/    # Mock REST API
 ```
 
-## Author
+## Run Locally
 
-**Jarell E. Portillas**
+### 1. Start the Backend
+
+```bash
+cd backend
+npm install
+npm start
+```
+
+Backend runs at:
+
+```
+http://localhost:3001
+```
+
+### 2. Start the Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend runs at:
+
+```
+http://localhost:3000
+```
+
+## Mock API Endpoints
+
+- `GET /shopify_data`
+- `GET /tiktok_data`
+
+## Run with Docker (Optional)
+
+If Docker Desktop is installed:
+
+```bash
+docker compose up --build
+```
+
+Frontend: http://localhost:3000
+
+Backend: http://localhost:3001
+
+
+The dashboard demonstrates the required **Loading**, **Success**, **Partial Success**, and **Error** states using mocked API responses.
