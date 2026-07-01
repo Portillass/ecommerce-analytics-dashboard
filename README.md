@@ -75,7 +75,7 @@ Displays loading cards while waiting for API responses.
 
 ---
 
-### ✅ Shopify Loaded, Waiting for TikTok
+### Shopify Loaded, Waiting for TikTok
 
 Shopify data is loaded successfully while the application continues waiting for the slower TikTok API response.
 
