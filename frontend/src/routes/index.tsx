@@ -34,41 +34,55 @@ function Home() {
   const [shopifyLoading, setShopifyLoading] = useState(true)
   const [tiktokLoading, setTiktokLoading] = useState(true)
 
+  const [shopifyError, setShopifyError] = useState(false)
   const [tiktokError, setTiktokError] = useState(false)
 
   // Shopify (Fast API)
   useEffect(() => {
     getShopifyData()
-      .then((data) => setShopify(data))
-      .finally(() => setShopifyLoading(false))
+      .then((data) => {
+        setShopify(data)
+      })
+      .catch(() => {
+        setShopifyError(true)
+      })
+      .finally(() => {
+        setShopifyLoading(false)
+      })
   }, [])
 
   // TikTok (Slow / Error API)
   useEffect(() => {
     getTikTokData()
-      .then((data) => setTiktok(data))
-      .catch(() => setTiktokError(true))
-      .finally(() => setTiktokLoading(false))
+      .then((data) => {
+        setTiktok(data)
+      })
+      .catch(() => {
+        setTiktokError(true)
+      })
+      .finally(() => {
+        setTiktokLoading(false)
+      })
   }, [])
 
   return (
-    <main className="container mx-auto max-w-6xl py-10 px-6 space-y-8">
-
+    <main className="container mx-auto max-w-6xl px-6 py-10 space-y-8">
       {/* HEADER */}
       <div>
         <h1 className="text-4xl font-bold tracking-tight">
           Inventory / Alerts Command Center
         </h1>
 
-        <p className="text-muted-foreground mt-2">
+        <p className="mt-2 text-muted-foreground">
           Monitor Shopify and TikTok marketplace performance in real time.
         </p>
       </div>
 
-      {/* STATUS */}
+      {/* STATUS BAR */}
       <StatusBar
         shopifyLoading={shopifyLoading}
         tiktokLoading={tiktokLoading}
+        shopifyError={shopifyError}
         tiktokError={tiktokError}
       />
 
@@ -76,25 +90,24 @@ function Home() {
 
       {/* DASHBOARD */}
       <div className="grid gap-6 md:grid-cols-2">
-
-        {/* Shopify */}
+        {/* SHOPIFY */}
         {shopifyLoading ? (
           <LoadingCard title="Shopify" />
-        ) : (
-          shopify && <ShopifyCard data={shopify} />
-        )}
+        ) : shopifyError ? (
+          <ErrorCard title="Shopify" />
+        ) : shopify ? (
+          <ShopifyCard data={shopify} />
+        ) : null}
 
-        {/* TikTok */}
+        {/* TIKTOK */}
         {tiktokLoading ? (
           <LoadingCard title="TikTok" />
         ) : tiktokError ? (
           <ErrorCard title="TikTok" />
-        ) : (
-          tiktok && <TikTokCard data={tiktok} />
-        )}
-
+        ) : tiktok ? (
+          <TikTokCard data={tiktok} />
+        ) : null}
       </div>
-
     </main>
   )
 }
