@@ -101,12 +101,18 @@ Shopify loads successfully while TikTok returns an error.
 
 ### Error
 
-To test the full **Error** state, temporarily modify the Shopify endpoint in `backend/server.js`:
+To demonstrate the **Error** state shown below, temporarily change all API endpoints in `backend/server.js` so they return an HTTP `500` response instead of successful data.
 
 ```javascript
 app.get("/shopify_data", (req, res) => {
   res.status(500).json({
     error: "Shopify unavailable",
+  })
+})
+
+app.get("/tiktok_data", (req, res) => {
+  res.status(500).json({
+    error: "TikTok unavailable",
   })
 })
 ```
